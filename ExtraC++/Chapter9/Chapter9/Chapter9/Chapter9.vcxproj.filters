@@ -19,4 +19,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="studentList.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="SixInFile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="SixOutFile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
