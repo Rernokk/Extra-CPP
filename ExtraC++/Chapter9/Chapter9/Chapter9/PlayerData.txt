@@ -1,0 +1,10 @@
+John Travolta,Quarterback,0,0,0,0,0
+placeholderName,placeholderPosition,15,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+Gandalf,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0
+placeholderName,placeholderPosition,0,0,0,0,0

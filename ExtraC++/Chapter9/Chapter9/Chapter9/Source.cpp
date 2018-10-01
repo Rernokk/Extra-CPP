@@ -59,14 +59,14 @@ struct menuItemType {
 
 void getDataFour(bool * choices) {
 	char c;
-	for (int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++) {
 		cin >> c;
 		choices[i] = (c == 't' ? true : false);
 	}
 }
 
 void showMenu(MenuItemType * menu) {
-	for (int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++) {
 		cout << menu[i].menuItem << " " << menu[i].menuPrice << endl;
 	}
 }
@@ -79,7 +79,7 @@ void printCheck(MenuItemType * menu, bool * choices) {
 			sumCost += menu[i].menuPrice;
 		}
 	}
-	cout << "Taxes: "  << sumCost * .05 << endl;
+	cout << "Taxes: " << sumCost * .05 << endl;
 	cout << "Total: " << sumCost * 1.05 << endl;
 }
 
@@ -106,7 +106,7 @@ void ProblemNineFour() {
 	showMenu(menuWrapper);
 
 	bool * menuArray;
-	menuArray = new bool [8];
+	menuArray = new bool[8];
 	getDataFour(menuArray);
 	printCheck(menuWrapper, menuArray);
 
@@ -123,22 +123,22 @@ void ProblemNineFour() {
 
 //9-2 Struct
 struct studentType {
-		string studentFName = "first";
-		string studentLName = "last";
-		int testScore = 0;
-		char grade = 'F';
+	string studentFName = "first";
+	string studentLName = "last";
+	int testScore = 0;
+	char grade = 'F';
 };
 
 void GetStudentData(studentType * sArray) {
-	ifstream infile ("studentList.txt");
+	ifstream infile("studentList.txt");
 	string line;
 	int counter = 0;
-	if (infile.is_open()){
+	if (infile.is_open()) {
 		while (getline(infile, line)) {
 			sArray[counter].studentFName = line.substr(0, line.find(','));
-			line = line.substr(line.find(',')+1);
+			line = line.substr(line.find(',') + 1);
 			sArray[counter].studentLName = line.substr(0, line.find(','));
-			line = line.substr(line.find(',')+1);
+			line = line.substr(line.find(',') + 1);
 			sArray[counter].testScore = stoi(line);
 			counter++;
 		}
@@ -153,13 +153,13 @@ void FindHighestScore(studentType * sArray) {
 		if (sArray[i].testScore >= 90) {
 			sArray[i].grade = 'A';
 		}
-		else if(sArray[i].testScore >= 80) {
+		else if (sArray[i].testScore >= 80) {
 			sArray[i].grade = 'B';
 		}
-		else if(sArray[i].testScore >= 70) {
+		else if (sArray[i].testScore >= 70) {
 			sArray[i].grade = 'C';
 		}
-		else if(sArray[i].testScore >= 60) {
+		else if (sArray[i].testScore >= 60) {
 			sArray[i].grade = 'D';
 		}
 		else {
@@ -188,7 +188,7 @@ void FindHighestScore(studentType * sArray) {
 //9-2
 void ProbTwo() {
 	cout << " -------- Problem Two -------- " << endl;
-	
+
 	studentType studentArray[20];
 	GetStudentData(studentArray);
 	FindHighestScore(studentArray);
@@ -220,10 +220,10 @@ bool OpenFile(ifstream * inFile, ofstream * outFile) {
 	return true;
 }
 
-void Count(ifstream * inFile, ofstream * outFile, characterType charArray [26]) {
+void Count(ifstream * inFile, ofstream * outFile, characterType charArray[26]) {
 	char character;
 	if (inFile->is_open()) {
-		while (inFile->get(character)){
+		while (inFile->get(character)) {
 			for (int i = 0; i < 26; i++) {
 				if (charArray[i].charTypeUpper == character) {
 					charArray[i].countUpper++;
@@ -237,10 +237,10 @@ void Count(ifstream * inFile, ofstream * outFile, characterType charArray [26]) 
 	}
 }
 
-void PrintResult(characterType charArray [26]) {
+void PrintResult(characterType charArray[26]) {
 	for (int i = 0; i < 26; i++) {
 		double total = charArray[i].countUpper + charArray[i].countLower;
-		cout << charArray[i].charTypeUpper << ": " << charArray[i].countUpper << " (" << charArray[i].countUpper / total << "%), " << charArray[i].charTypeLower << ": " << charArray[i].countLower << " (" << charArray[i].countLower / total << "%)";
+		cout << charArray[i].charTypeUpper << ": " << charArray[i].countUpper << setprecision(2) << " (" << charArray[i].countUpper / total << "%), " << charArray[i].charTypeLower << ": " << charArray[i].countLower << " (" << charArray[i].countLower / total << "%)";
 		cout << endl;
 	}
 }
@@ -256,7 +256,7 @@ void ProbSix() {
 		charArray[i].charTypeLower = tolower(charArray[i].charTypeUpper);
 	}
 
-	if (OpenFile(&inFile, &outFile)){
+	if (OpenFile(&inFile, &outFile)) {
 		Count(&inFile, &outFile, charArray);
 		PrintResult(charArray);
 	}
@@ -268,29 +268,77 @@ void ProbSix() {
 
 //9-7
 struct footballPlayerType {
-	string name;
-	string position;
-	int touchdowns;
-	int catches;
-	double passingYards;
-	double receivingYards;
-	double rushingYards;
+	string name = "placeholderName";
+	string position = "placeholderPosition";
+	int touchdowns = 0;
+	int catches = 0;
+	double passingYards = 0.0;
+	double receivingYards = 0.0;
+	double rushingYards = 0.0;
+
+	friend ostream& operator<<(ostream& os, const footballPlayerType& player) {
+		os << player.name << ", ";
+		os << player.position << ", ";
+		os << player.touchdowns << ", ";
+		os << player.catches << ", ";
+		os << player.passingYards << ", ";
+		os << player.receivingYards;
+		return os;
+	}
 };
 
-void SevenInData() {
-
+void SevenInData(footballPlayerType inArray[10]) {
+	ifstream playerData("PlayerData.txt");
+	for (int i = 0; i < 10; i++) {
+		string entry;
+		getline(playerData, entry);
+		inArray[i].name = entry.substr(0, entry.find(','));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].position = entry.substr(0, entry.find(','));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].touchdowns = stoi(entry.substr(0, entry.find(',')));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].catches = stoi(entry.substr(0, entry.find(',')));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].passingYards = stod(entry.substr(0, entry.find(',')));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].receivingYards = stod(entry.substr(0, entry.find(',')));
+		entry = entry.substr(entry.find(',') + 1);
+		inArray[i].rushingYards = stod(entry.substr(0, entry.find(',')));
+	}
 }
 
-void FindPlayer() {
-
+int FindPlayerIndex(footballPlayerType inArray[10], string playerName) {
+	for (int i = 0; i < 10; i++) {
+		if (inArray[i].name == playerName) {
+			return i;
+		}
+	}
+	return -1;
 }
 
-void SevenOutData() {
-
+void SevenOutData(footballPlayerType outArray[10]) {
+	ofstream playerData("PlayerData.txt");
+	for (int i = 0; i < 10; i++) {
+		playerData << outArray[i].name << ",";
+		playerData << outArray[i].position << ",";
+		playerData << outArray[i].touchdowns << ",";
+		playerData << outArray[i].catches << ",";
+		playerData << outArray[i].passingYards << ",";
+		playerData << outArray[i].receivingYards << ",";
+		playerData << outArray[i].rushingYards << endl;
+	}
 }
 
-void DrawMenu() {
-	
+void DrawMenu(footballPlayerType playerArray[10]) {
+	cout << "Current Roster: " << endl << endl;
+	cout << "1. Name, 2. Position, 3. Touchdowns, 4. Catches, 5. Passing Yards, 6. Receiving Yards, 7. Rushing Yards" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << i + 1 << ". " << playerArray[i] << endl;
+	}
+	cout << endl << "What would you like to do?" << endl;
+	cout << "1) Update Player Stats" << endl;
+	cout << "2) Exit" << endl;
 }
 
 void ProbSeven() {
@@ -298,8 +346,81 @@ void ProbSeven() {
 	cout << " -------- Problem Seven -------- " << endl;
 
 	footballPlayerType playerArray[10];
-	DrawMenu();
+	SevenInData(playerArray);
+	char input;
+	do {
+		system("cls");
+		DrawMenu(playerArray);
+		cin >> input;
+		if (input == '1') {
+			cout << "Enter the number of the player you would like to update." << endl;
+			int playerInd = 0;
+			cin >> playerInd;
+			playerInd --;
 
+			cout << "What field would you like to update?" << endl;
+			int fieldInput = 0;
+			cin >> fieldInput;
+			string str;
+
+			switch (fieldInput) {
+			case(1):
+				cout << "Enter the players name:" << endl;
+				cin.ignore();
+				getline(cin, playerArray[playerInd].name);
+				break;
+			case(2):
+				cout << "Enter the players position:" << endl;
+				cin.ignore();
+				getline(cin, playerArray[playerInd].position);
+				break;
+			case(3):
+				cout << "Enter the players touchdowns:" << endl;
+				cin.ignore();
+				getline(cin, str);
+				playerArray[playerInd].touchdowns = stoi(str);
+				break;
+			case(4):
+				cout << "Enter the players catches:" << endl;
+				cin.ignore();
+				getline(cin, str);
+				playerArray[playerInd].catches = stoi(str);
+				break;
+			case(5):
+				cout << "Enter the players passing yards:" << endl;
+				cin.ignore();
+				getline(cin, str);
+				playerArray[playerInd].passingYards = stod(str);
+				break;
+			case(6):
+				cout << "Enter the players receiving yards:" << endl;
+				cin.ignore();
+				getline(cin, str);
+				playerArray[playerInd].receivingYards = stod(str);
+				break;
+			case(7):
+				cout << "Enter the players rushing yards:" << endl;
+				cin.ignore();
+				getline(cin, str);
+				playerArray[playerInd].rushingYards = stod(str);
+				break;
+			default:
+				break;
+			}
+		}
+	} while (input != '2');
+	system("cls");
+	cout << "Current Roster: " << endl << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << i + 1 << ". " << playerArray[i] << endl;
+	}
+
+	cout << endl << "Save Data? (Y/N):" << endl;
+	char save;
+	cin >> save;
+	if (save == 'y' || save == 'Y') {
+		SevenOutData(playerArray);
+	}
 	cout << " ------ End Problem Seven ------ " << endl;
 	char c;
 	cin >> c;
