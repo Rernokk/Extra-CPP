@@ -167,9 +167,9 @@ void ProblemThirteen() {
 }
 
 int main() {
-	//ProblemSix();
+	ProblemSix();
 	//ProblemSeven();
-	ProblemThirteen();
+	//ProblemThirteen();
 
 	char c;
 	cin >> c;

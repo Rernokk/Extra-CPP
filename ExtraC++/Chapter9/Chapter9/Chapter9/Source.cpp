@@ -430,8 +430,8 @@ void ProbSeven() {
 int main() {
 	//ProblemNineOne();
 	//ProblemNineFour();
-	//ProbTwo();
+	ProbTwo();
 	//ProbSix();
-	ProbSeven();
+	//ProbSeven();
 	return 0;
 }
