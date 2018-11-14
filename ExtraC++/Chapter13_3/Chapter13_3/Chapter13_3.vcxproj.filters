@@ -18,10 +18,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clockType.h">
+    <ClInclude Include="boxType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="extendedClockType.h">
+    <ClInclude Include="rectangleType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,13 +29,13 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chapter11Ex.cpp">
+    <ClCompile Include="Chapter13_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="clockType.cpp">
+    <ClCompile Include="rectangleType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="extendedClockType.cpp">
+    <ClCompile Include="boxType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

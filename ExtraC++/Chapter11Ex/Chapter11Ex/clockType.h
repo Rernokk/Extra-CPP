@@ -6,9 +6,11 @@
 
 class clockType
 {
+	friend std::ostream& operator<<(std::ostream& sout, const clockType& clock);
+
 	public:
 		//Constructors
-		clockType() = default;
+		clockType();
 		clockType(int iHr, int iMin, int iSec);
 
 		//Accessors/Mutators
@@ -16,11 +18,11 @@ class clockType
 		void getTime (int &iHr, int &iMin, int &iSec);
 
 		//Methods
-		void printTime();
 		void incrementSeconds();
 		void incrementMinutes();
 		void incrementHours();
-		bool equalTime(const clockType& other) const;
+
+		bool operator==(const clockType& other);
 
 	protected:
 		int hr;
