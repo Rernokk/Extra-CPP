@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{4A018B87-EF3E-4156-A355-B89D3FE49F54}</ProjectGuid>
+    <ProjectGuid>{10E409B9-B804-4CBB-8A6D-BFA13D16396F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Chapter11Ex</RootNamespace>
+    <RootNamespace>Chapter12Ex</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,18 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="circleType.h" />
-    <ClInclude Include="clockType.h" />
-    <ClInclude Include="cylinderType.h" />
-    <ClInclude Include="extendedClockType.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Chapter11Ex.cpp" />
-    <ClCompile Include="circleTypeImp.cpp" />
-    <ClCompile Include="clockType.cpp" />
-    <ClCompile Include="cylinderType.cpp" />
-    <ClCompile Include="extendedClockType.cpp" />
+    <ClCompile Include="Chapter12Ex.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

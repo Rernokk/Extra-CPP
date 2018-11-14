@@ -18,36 +18,12 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clockType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="extendedClockType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="circleType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cylinderType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chapter11Ex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="clockType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="extendedClockType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="circleTypeImp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cylinderType.cpp">
+    <ClCompile Include="Chapter12Ex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
